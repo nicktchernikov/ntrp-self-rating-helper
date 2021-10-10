@@ -72,7 +72,8 @@ const Test = () => {
 
         <div className='question__container'>
 
-            {moreQuestions ? (
+        {
+            moreQuestions ? (
                 <div>
                     <span className='question'> {question[1]} </span> 
                     <button onClick={() => handleButtonClick(true)}> True </button>
@@ -84,7 +85,8 @@ const Test = () => {
                     <button onClick={() => reset()}>Reset</button>
                 </div>
             )
-        }
+         }
+
         </div>
     );
 }
