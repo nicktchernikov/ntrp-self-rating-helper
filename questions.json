@@ -1,0 +1,15 @@
+[
+    {
+        "id" : 0,
+        "text" : "I have never played tennis before.",
+        "rating" : "1.0",
+        "endIfTrue" : true
+    },
+
+    {
+        "id" : 1,
+        "text" : "I have been briefly introduced to the game, but I have difficulty playing the game due to a lack of consistency in rallying and serving.",
+        "rating" : "1.5",
+        "endIfTrue" : true
+    }
+ ]
