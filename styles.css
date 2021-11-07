@@ -1,3 +1,7 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
 .question__container {
 
     position: absolute;
@@ -14,12 +18,20 @@
 
     font-family: Arial, sans-serif;
     font-size: 16px;
+
+    margin: 20px;
 }
 
 .question__container button {
     margin: 10px;
 
-    font-size: 14px;
+    font-size: 24px;
 
     cursor: pointer;
+}
+
+.question__container .type {
+    font-size: 32px;
+    margin: 20px;
+    text-transform: capitalize;
 }

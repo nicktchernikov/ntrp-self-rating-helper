@@ -3,13 +3,256 @@
         "id" : 0,
         "text" : "I have never played tennis before.",
         "rating" : "1.0",
-        "endIfTrue" : true
+        "endIfTrue" : true,
+        "type" : "general"
     },
 
     {
         "id" : 1,
         "text" : "I have been briefly introduced to the game, but I have difficulty playing the game due to a lack of consistency in rallying and serving.",
         "rating" : "1.5",
-        "endIfTrue" : true
+        "endIfTrue" : true,
+        "type" : "general"
+    }, 
+
+    {
+        "id" : 2,
+        "text" : "Can get the ball in play but lacks control, resulting in inconsistent rallies. Often chooses to hit forehands instead of backhands.",
+        "rating" : "2.0",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    }, 
+
+    {
+        "id" : 3,
+        "text" : "Can rally consistenly 10 balls in a row, especially on the forehand, with an arched trajectory over the net when the objective is to hit to a partner at moderate speed",
+        "rating" : "2.5",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    }, 
+
+    {
+        "id" : 4,
+        "text" : "Able to rally consistently 10 balls in a row on forehands and backhands. Able to maintain the rally when receiving high, short or wide balls, assuming the ball is received at a moderate pace, especially on the forehand stroke.",
+        "rating" : "3.0",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    },
+
+    {
+        "id" : 5,
+        "text" : "Able to move the opponent around the court or hit harder when receiving easier balls. Can execute approach shots with some consistency (more than 50%). ",
+        "rating" : "3.5",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    },
+
+    {
+        "id" : 6,
+        "text" : "Able to develop points with some consistency by using a reliable combination of shots. Erratic when attempting a quality shot, when receiving fast or wide balls, and when attempting passing shots.",
+        "rating" : "4.0",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    },
+
+    {
+        "id" : 7,
+        "text" : "Can use a variety of spins. Beginning to develop a dominant shot or good steadiness. Erratic when attempting a quality shot in two of the following situations: receiving fast balls, wide balls, and in passing shot situations",
+        "rating" : "4.5",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    },
+
+    {
+        "id" : 8,
+        "text" : "Able to maintain a consistent rally, 10 balls in a row on faster balls. Very steady strokes or has a dominant shot. Periodically succeeds (50%) when attempting a quality shot when receiving fast or wide balls, and in passing shot situations.",
+        "rating" : "5.0",
+        "endIfTrue" : false,
+        "type" : "groundstrokes"
+    },
+    
+    {
+        "id" : 9,
+        "text" : "Tends to position in a manner to protect weaknesses. Inconsistent return",
+        "rating" : "2.0",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 10,
+        "text" : "In singles, consistent when returning towards the middle of the court. In doubles, difficulty returning crosscourt to start the point.",
+        "rating" : "2.5",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 11,
+        "text" : "Can control the direction of the ball in both singles and doubles, when receiving a serve of moderate pace.",
+        "rating" : "3.0",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 12,
+        "text" : "Can return fast serves or wellplaced serves with defensive actions. On easy second serve, can return with pace or directional control; can approach the net in doubles.",
+        "rating" : "3.5",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 13,
+        "text" : "Difficulty in returning spin serves and very fast serves. On moderately paced serves, can construct the point through hitting a good shot or exploiting an opponent’s weakness. In doubles, can vary returns effectively on moderatelypaced serves.",
+        "rating" : "4.0",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 14,
+        "text" : "Off first serves, can defend consistently but very inconsistent (less then 30%) when attempting an aggressive return. In doubles, has difficulty (less than 50%) returning a first serve at the feet of the incoming serve and volleyer. ",
+        "rating" : "4.5",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 15,
+        "text" : "Periodically succeeds (50%) at aggressive return off fast first serves using dominant shot (forehand or backhand). In doubles can return at the feet of serve and volleyer. ",
+        "rating" : "5.0",
+        "endIfTrue" : false,
+        "type" : "Return of Serve"
+    },
+
+    {
+        "id" : 15,
+        "text" : "In singles, reluctant to come to the net. In doubles, understands the basic positioning; comfortable only with the forehand volley; avoids backhand volley and overhead.",
+        "rating" : "2.0",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 16,
+        "text" : "Becoming at ease at the net in practice but uncomfortable in a game situation",
+        "rating" : "2.5",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 17,
+        "text" : "Very consistent on forehand volley with easy balls, inconsistent on backhand volley. Overall has difficulty with low and wide balls. Can smash easy lobs. ",
+        "rating" : "3.0",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 18,
+        "text" : "Becoming confident at net play; can direct FH volleys; controls BH volley but with little offense; general difficulty in putting volleys away. Can handle volleys and overheads that require moderate movement",
+        "rating" : "3.5",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 19,
+        "text" : "In singles, comfortable at following an approach shot to the net. In doubles, comfortable receiving a variety of balls and converting to offensive positioning; can poach on weak returns of serve. Able to put away easy overheads.",
+        "rating" : "4.0",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 20,
+        "text" : "When coming to the net after serving, consistently able to put the first volley in play but without pace or depth; however, inconsistent when trying to volley powerful or angled returns. Close to the net, can finish a point using various options including drop volley, angle volley, punch volley.",
+        "rating" : "4.5",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+    
+    {
+        "id" : 21,
+        "text" : "In doubles, after the serve, has a good, deep crosscourt volley. Overhead can be hit from almost any position. ",
+        "rating" : "5.0",
+        "endIfTrue" : false,
+        "type" : "Net Play"
+    },
+
+    {
+        "id" : 22,
+        "text" : "In complete service motion. Toss is inconsistent. Double faults are common.",
+        "rating" : "2.0",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 23,
+        "text" : "Attempting a full service motion on the first serve. First serve in inconsistent (less than 50%). Uses an incomplete motion to ensure a steady second serve.",
+        "rating" : "2.5",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 24,
+        "text" : "Full motion on both serves. Able to achieve more than 50% success on first serve. Second serve much slower than first serve. ",
+        "rating" : "3.0",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 25,
+        "text" : "Can vary the speed or direction of first serve. Can direct the second serve to the opponent’s weakness without double-faulting on a regular basis. ",
+        "rating" : "3.5",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 26,
+        "text" : "Can vary the speed and direction of the first serve. Uses spin.",
+        "rating" : "4.0",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 27,
+        "text" : "Aggressive first serve with power and spin. On second serve frequently hits with good depth and placement without double faults. Can serve and volley off first serves in doubles, but experiences some inconsistency. ",
+        "rating" : "4.5",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 28,
+        "text" : "First serve can win points outright, or force a weak return. Second serve can prevent the opponent from attacking. Serve and volleys on first serves in doubles with consistency. ",
+        "rating" : "5.0",
+        "endIfTrue" : false,
+        "type" : "Serve"
+    },
+
+    {
+        "id" : 29,
+        "text" : "This player has developed a gamestyle which is recognizable as either an all court player, an aggressive baseliner, a serve and volleyer, or a retriever. Has developed good anticipation either technically (can read toss on serve, body position…) or tactically (can read opponents tendencies in specific situations). Has no major weaknesses and can counterattack effectively against a hard ball, wide ball or in passing shot situations. Capable of competing in 'open' category provincial level tournaments. Ability to use specific shots in order to exploit opponent’s weakness: drop-shot, lob, angle, moonball…",
+        "rating" : "5.5",
+        "endIfTrue" : false,
+        "type" : "general"
+    },
+
+    {
+        "id" : 30,
+        "text" : "These players will generally not need a rating. Rankings or past rankings will speak for themselves. The 6.0 player typically has had intensive training for national tournament competition at the junior level and collegiate levels and has obtained a provincial and/or national 'open' ranking. The 6.5 player has extensive international “open” level tournament experience at the entry professional level (challenger or satellite experience). The 7.0 is a world class professional tennis player.",
+        "rating" : "6.0",
+        "endIfTrue" : false,
+        "type" : "general"
     }
- ]
+
+]
