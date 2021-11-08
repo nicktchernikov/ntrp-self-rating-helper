@@ -23,10 +23,6 @@ const RatingHelper = () => {
         return allQuestions.filter(question => question.type.toLowerCase() === currentType.toLowerCase());
     }
 
-    React.useEffect(async () => {
-        fetchAllQuestions().then((questionData) => setAllQuestions(questionData));
-    }, []);
-
     const displayQuestion = (question) => {
         return (
             <label className='question-box' key={question.id} htmlFor={question.id}>
@@ -41,7 +37,11 @@ const RatingHelper = () => {
             </label>
         );
     }
- 
+
+    React.useEffect(async () => {
+        fetchAllQuestions().then((questionData) => setAllQuestions(questionData));
+    }, []);
+
     const questions = filterQuestionsByType(allQuestions, types[typeIndex]);
 
     return (
