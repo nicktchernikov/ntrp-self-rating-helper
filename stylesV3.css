@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.question-box {
+    margin: 10px 0px 10px 0px;
+    padding: 10px; 
+    border: 1px solid grey;
+    display: block;
+}
+
+.question-box:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+.question-radio {
+}
+
+.question-text {
+    cursor: pointer;
+}

@@ -128,7 +128,7 @@
     },
 
     {
-        "id" : 15,
+        "id" : 16,
         "text" : "In singles, reluctant to come to the net. In doubles, understands the basic positioning; comfortable only with the forehand volley; avoids backhand volley and overhead.",
         "rating" : "2.0",
         "endIfTrue" : false,
@@ -136,7 +136,7 @@
     },
 
     {
-        "id" : 16,
+        "id" : 17,
         "text" : "Becoming at ease at the net in practice but uncomfortable in a game situation",
         "rating" : "2.5",
         "endIfTrue" : false,
@@ -144,7 +144,7 @@
     },
 
     {
-        "id" : 17,
+        "id" : 18,
         "text" : "Very consistent on forehand volley with easy balls, inconsistent on backhand volley. Overall has difficulty with low and wide balls. Can smash easy lobs. ",
         "rating" : "3.0",
         "endIfTrue" : false,
@@ -152,7 +152,7 @@
     },
 
     {
-        "id" : 18,
+        "id" : 19,
         "text" : "Becoming confident at net play; can direct FH volleys; controls BH volley but with little offense; general difficulty in putting volleys away. Can handle volleys and overheads that require moderate movement",
         "rating" : "3.5",
         "endIfTrue" : false,
@@ -160,7 +160,7 @@
     },
 
     {
-        "id" : 19,
+        "id" : 20,
         "text" : "In singles, comfortable at following an approach shot to the net. In doubles, comfortable receiving a variety of balls and converting to offensive positioning; can poach on weak returns of serve. Able to put away easy overheads.",
         "rating" : "4.0",
         "endIfTrue" : false,
@@ -168,7 +168,7 @@
     },
 
     {
-        "id" : 20,
+        "id" : 21,
         "text" : "When coming to the net after serving, consistently able to put the first volley in play but without pace or depth; however, inconsistent when trying to volley powerful or angled returns. Close to the net, can finish a point using various options including drop volley, angle volley, punch volley.",
         "rating" : "4.5",
         "endIfTrue" : false,
@@ -176,7 +176,7 @@
     },
     
     {
-        "id" : 21,
+        "id" : 22,
         "text" : "In doubles, after the serve, has a good, deep crosscourt volley. Overhead can be hit from almost any position. ",
         "rating" : "5.0",
         "endIfTrue" : false,
@@ -184,7 +184,7 @@
     },
 
     {
-        "id" : 22,
+        "id" : 23,
         "text" : "In complete service motion. Toss is inconsistent. Double faults are common.",
         "rating" : "2.0",
         "endIfTrue" : false,
@@ -192,7 +192,7 @@
     },
 
     {
-        "id" : 23,
+        "id" : 24,
         "text" : "Attempting a full service motion on the first serve. First serve in inconsistent (less than 50%). Uses an incomplete motion to ensure a steady second serve.",
         "rating" : "2.5",
         "endIfTrue" : false,
@@ -200,7 +200,7 @@
     },
 
     {
-        "id" : 24,
+        "id" : 25,
         "text" : "Full motion on both serves. Able to achieve more than 50% success on first serve. Second serve much slower than first serve. ",
         "rating" : "3.0",
         "endIfTrue" : false,
@@ -208,7 +208,7 @@
     },
 
     {
-        "id" : 25,
+        "id" : 26,
         "text" : "Can vary the speed or direction of first serve. Can direct the second serve to the opponent’s weakness without double-faulting on a regular basis. ",
         "rating" : "3.5",
         "endIfTrue" : false,
@@ -216,7 +216,7 @@
     },
 
     {
-        "id" : 26,
+        "id" : 27,
         "text" : "Can vary the speed and direction of the first serve. Uses spin.",
         "rating" : "4.0",
         "endIfTrue" : false,
@@ -224,7 +224,7 @@
     },
 
     {
-        "id" : 27,
+        "id" : 28,
         "text" : "Aggressive first serve with power and spin. On second serve frequently hits with good depth and placement without double faults. Can serve and volley off first serves in doubles, but experiences some inconsistency. ",
         "rating" : "4.5",
         "endIfTrue" : false,
@@ -232,7 +232,7 @@
     },
 
     {
-        "id" : 28,
+        "id" : 29,
         "text" : "First serve can win points outright, or force a weak return. Second serve can prevent the opponent from attacking. Serve and volleys on first serves in doubles with consistency. ",
         "rating" : "5.0",
         "endIfTrue" : false,
@@ -240,7 +240,7 @@
     },
 
     {
-        "id" : 29,
+        "id" : 30,
         "text" : "This player has developed a gamestyle which is recognizable as either an all court player, an aggressive baseliner, a serve and volleyer, or a retriever. Has developed good anticipation either technically (can read toss on serve, body position…) or tactically (can read opponents tendencies in specific situations). Has no major weaknesses and can counterattack effectively against a hard ball, wide ball or in passing shot situations. Capable of competing in 'open' category provincial level tournaments. Ability to use specific shots in order to exploit opponent’s weakness: drop-shot, lob, angle, moonball…",
         "rating" : "5.5",
         "endIfTrue" : false,
@@ -248,7 +248,7 @@
     },
 
     {
-        "id" : 30,
+        "id" : 31,
         "text" : "These players will generally not need a rating. Rankings or past rankings will speak for themselves. The 6.0 player typically has had intensive training for national tournament competition at the junior level and collegiate levels and has obtained a provincial and/or national 'open' ranking. The 6.5 player has extensive international “open” level tournament experience at the entry professional level (challenger or satellite experience). The 7.0 is a world class professional tennis player.",
         "rating" : "6.0",
         "endIfTrue" : false,
