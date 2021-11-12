@@ -27,8 +27,11 @@ body {
 
 .type {
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 15px;
+    width: 100%;
+    text-align: center;
 }
 
 .next-button {
@@ -78,4 +81,39 @@ body {
 .final-rating {
     border: 1px solid black;
     padding: 10px;
+}
+
+.answers-summary, .answers-summary th, .answers-summary td {
+    margin: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 500px;
+}
+
+.answers-summary-title {
+    padding-bottom: 10px;
+}
+
+.summary-item > td {
+    padding: 10px;
+}
+
+.summary-item > td:nth-child(1) {
+    width: 15%;
+}
+
+.summary-item > td:nth-child(2) {
+    width: 70%;
+}
+
+.summary-item > td:nth-child(3) {
+    width: 15%;
+}
+
+.summary-item {
+    width: 100px;
+}
+
+.summary-item-category {
+    text-transform: capitalize;
 }

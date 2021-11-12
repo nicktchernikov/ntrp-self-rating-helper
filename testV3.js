@@ -39,7 +39,7 @@ const RatingHelper = () => {
                     setAnswers(answers);
                 }
                 setTypeIndex(typeIndex + 1);
-                console.log('answers', answers);
+                console.log('answers in handleClickNextButton()', answers);
             }
             setErrorText(null);
         } else {
@@ -59,7 +59,7 @@ const RatingHelper = () => {
                 setAnswers(answers);
             }
         }
-        console.log('answers', answers);
+        console.log('answers in handleClickBackButton()', answers);
 
         setTypeIndex(typeIndex - 1);
     }
@@ -131,7 +131,7 @@ const RatingHelper = () => {
             {(typeIndex > 0 && typeIndex < types.length) && 
                 <input className='back-button' type='button' value='Back' onClick={() => handleClickBackButton()} />
             }
-            {(typeIndex + 1 >= types.length) ? (
+            {(typeIndex + 1 >= types.length) || endIfSelected ? (
                 <input className='submit-button' type='button' value='Submit' onClick= {() => handleClickSubmitButton()} />
             ) : (
                 <input className='next-button' type='button' value='Next' onClick= {() => handleClickNextButton()} />
@@ -143,10 +143,49 @@ const RatingHelper = () => {
         location.reload();
     }
 
+    const getText = (answer, type) => {
+        console.log('answer', answer);
+        console.log('type', type);
+        const question = allQuestions.find(question => question.rating === answer && question.type.toLowerCase() === type); 
+        return question.text;
+    }
+
     const displayResults = () => {
         return (
             <div className='results'>
                 <div className='final-rating'> Your rating is {finalRating} NTRP </div>
+  
+                <table className='answers-summary'>
+                    <caption className='answers-summary-title'>
+                        Your Responses
+                    </caption>
+                    <tbody>
+                        <tr className='summary-item'>
+                            <td colSpan="1" className='summary-item-category'>
+                                Category
+                            </td>
+                            <td colSpan="1" className='summary-item-text'>
+                                Text
+                            </td>
+                            <td colSpan="1" className='summary-item-rating'>
+                                Rating
+                            </td>
+                        </tr>
+                        {answers.map((answer, i) => {
+                            return (
+                            <tr className='summary-item' key={i}>
+                                <td colSpan="1" className='summary-item-category'>
+                                    {types[i]}
+                                </td>
+                                <td colSpan="1" className='summary-item-text' dangerouslySetInnerHTML={{ __html: getText(answer, types[i]) }} />
+                                <td colSpan="1" className='summary-item-rating'>
+                                    {answer}
+                                </td>
+                            </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
                 <input className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
             </div>
         );
@@ -161,7 +200,7 @@ const RatingHelper = () => {
     }, [selectedAnswer]);
 
     React.useEffect(() => {
-        console.log('answers', answers);
+        console.log('answers in useEffect() for answers state', answers);
     }, [answers]);
 
     React.useEffect(() => {
@@ -174,17 +213,18 @@ const RatingHelper = () => {
 
     React.useEffect(() => {
         console.log('useEffect() for end state');
-        console.log(answers);
+        console.log('answers in useEffect for end state', answers);
         if (endIfSelected) {
             setFinalRating(selectedAnswer);
         } else {
-            answers.shift();
+            let answersCopy = [...answers];
+            answersCopy.shift();
             let total = 0.0;
-            answers.map((answer) => {
+            answersCopy.map((answer) => {
                 console.log(answer);
                 total += parseFloat(answer);
             });
-            const averageRating = (total / answers.length);
+            const averageRating = (total / answersCopy.length);
             setFinalRating(averageRating.toFixed(1));
         }
     }, [end]);
@@ -193,7 +233,7 @@ const RatingHelper = () => {
         <div> 
             <div className='title'>NTRP Self-Rating Helper</div>
             <hr />
-            {(end) ? displayResults() : displayQuestionList()}
+            {end ? displayResults() : displayQuestionList()}
         </div>
     );
 }
