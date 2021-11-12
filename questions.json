@@ -241,7 +241,7 @@
 
     {
         "id" : 30,
-        "text" : "I have developed a gamestyle which is recognizable as either an all-court player, an aggressive baseliner, a serve and volleyer, or a retriever. I have developed good anticipation either technically (can read toss on serve, body position…) or tactically (can read opponents tendencies in specific situations). I have no major weaknesses and can counterattack effectively against a hard ball, wide ball, or in passing shot situations. <b>I am capable of competing in 'open' category provincial level tournaments.</b> I have the ability to use specific shots in order to exploit opponent’s weakness: drop-shot, lob, angle, moonball…",
+        "text" : "<b>I am capable of competing in 'open' category provincial level tournaments.</b> I have developed a gamestyle which is recognizable as either an all-court player, an aggressive baseliner, a serve and volleyer, or a retriever. I have developed good anticipation either technically (can read toss on serve, body position…) or tactically (can read opponents tendencies in specific situations). I have no major weaknesses and can counterattack effectively against a hard ball, wide ball, or in passing shot situations. I have the ability to use specific shots in order to exploit opponent’s weakness: drop-shot, lob, angle, moonball…",
         "rating" : "5.0-5.5",
         "endIfSelected" : true,
         "type" : "general"
@@ -249,7 +249,7 @@
 
     {
         "id" : 31,
-        "text" : "My rankings or past rankings will speak for themselves. I have had intensive training for national tournament competition at the junior level and collegiate levels and have obtained a provincial and/or national 'open' ranking. <b>I have extensive international 'open' level tournament experience at the entry professional level (challenger or satellite experience).</b>",
+        "text" : "<b>I have extensive international 'open' level tournament experience at the entry professional level (challenger or satellite experience).</b> My rankings or past rankings will speak for themselves. I have had intensive training for national tournament competition at the junior level and collegiate levels and have obtained a provincial and/or national 'open' ranking.",
         "rating" : "6.0+",
         "endIfSelected" : true,
         "type" : "general"
@@ -257,7 +257,7 @@
 
     {
         "id" : 32,
-        "text" : "None of the above.",
+        "text" : "<b>None of the above.</b>",
         "rating" : "",
         "endIfSelected" : false,
         "type" : "general"

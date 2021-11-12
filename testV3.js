@@ -115,12 +115,12 @@ const RatingHelper = () => {
 
     const displayQuestionList = () => {
         const questions = filterQuestionsByType(allQuestions, types[typeIndex]);
-        return (<div> 
-            <div className='type'>
-                {types[typeIndex]} Questions
-            </div>
+        return (<div>
             <div className='prompt-text'>
                 Please select the answer which best describes your skill level.
+            </div>
+            <div className='type'>
+                Category: <span className='type-text'>{types[typeIndex]}</span>
             </div>
             <div className='questions'> 
                 {questions.map(question => displayQuestion(question))}
@@ -153,7 +153,7 @@ const RatingHelper = () => {
     const displayResults = () => {
         return (
             <div className='results'>
-                <div className='final-rating'> Your rating is {finalRating} NTRP </div>
+                <div className='final-rating'> Your rating is <b>{finalRating} NTRP</b></div>
   
                 <table className='answers-summary'>
                     <caption className='answers-summary-title'>
