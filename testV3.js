@@ -120,7 +120,7 @@ const RatingHelper = () => {
                 Please select the answer which best describes your skill level.
             </div>
             <div className='type'>
-                Category: <span className='type-text'>{types[typeIndex]}</span>
+               <span className='type-text'>{types[typeIndex]} Statements</span>
             </div>
             <div className='questions'> 
                 {questions.map(question => displayQuestion(question))}
