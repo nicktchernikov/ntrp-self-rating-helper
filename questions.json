@@ -193,7 +193,7 @@
 
     {
         "id" : 24,
-        "text" : "Attempting a full service motion on the first serve. First serve in inconsistent (less than 50%). Uses an incomplete motion to ensure a steady second serve.",
+        "text" : "I am attempting a full service motion on the first serve. My frst serve in inconsistent (less than 50% success). I use an incomplete motion to ensure a steady second serve.",
         "rating" : "2.5",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -201,7 +201,7 @@
 
     {
         "id" : 25,
-        "text" : "Full motion on both serves. Able to achieve more than 50% success on first serve. Second serve much slower than first serve. ",
+        "text" : "I use a full motion on both first and second serves. I am able to achieve more than 50% success on the first serve. My second serve is much slower than my first serve. ",
         "rating" : "3.0",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -209,7 +209,7 @@
 
     {
         "id" : 26,
-        "text" : "Can vary the speed or direction of first serve. Can direct the second serve to the opponent’s weakness without double-faulting on a regular basis. ",
+        "text" : "I can vary the speed or direction of my first serve. I can direct my second serve to the opponent's weakness without double-faulting on a regular basis.",
         "rating" : "3.5",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -217,7 +217,7 @@
 
     {
         "id" : 27,
-        "text" : "Can vary the speed and direction of the first serve. Uses spin.",
+        "text" : "I can vary the speed and direction of the first serve. I use spin on my serves.",
         "rating" : "4.0",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -225,7 +225,7 @@
 
     {
         "id" : 28,
-        "text" : "Aggressive first serve with power and spin. On second serve frequently hits with good depth and placement without double faults. Can serve and volley off first serves in doubles, but experiences some inconsistency. ",
+        "text" : "I have an aggressive first serve with power and spin. My second serve frequently hits the court with good depth and placement. I can serve and volley after my first serves in doubles, but experience some inconsistency.",
         "rating" : "4.5",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -233,7 +233,7 @@
 
     {
         "id" : 29,
-        "text" : "First serve can win points outright, or force a weak return. Second serve can prevent the opponent from attacking. Serve and volleys on first serves in doubles with consistency. ",
+        "text" : "My first serve can win points outright, or force a weak return. My second serve can prevent the opponent from attacking. I serve and volley off the first serve in doubles with consistency.",
         "rating" : "5.0",
         "endIfSelected" : false,
         "type" : "Serve"
