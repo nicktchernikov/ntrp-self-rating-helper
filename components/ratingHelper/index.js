@@ -1,4 +1,5 @@
 const RatingHelper = () => {
+
     const [allQuestions, setAllQuestions] = React.useState([]);
     const [typeIndex, setTypeIndex] = React.useState(0);
     const [selectedAnswer, setSelectedAnswer] = React.useState(null);
@@ -7,6 +8,10 @@ const RatingHelper = () => {
     const [finalRating, setFinalRating] = React.useState(null);
     const [end, setEnd] = React.useState(false);
     const [endIfSelected, setEndIfSelected] = React.useState(false);
+
+    const [nameInput, setNameInput] = React.useState('');
+    const [nameComplete, setNameComplete] = React.useState(false);
+    const [nameIsValid, setNameIsValid] = React.useState(false);
 
     let types = [
         'general', 
@@ -124,45 +129,101 @@ const RatingHelper = () => {
 
     const displayQuestion = (question) => {
         return (
-            <label className='question-box' key={question.id} htmlFor={question.id}>
+            <div className='question'>
                 <input
-                    id={question.id}
+                    id={`question-id-${question.id}`}
                     name='question'
                     value={question.rating}
                     type='radio' 
                     className='question-radio'
-                    onClick={() => handleClickRadioButton(question)}
-                    defaultChecked={answers[typeIndex] === question.rating}
+                    onChange={() => handleClickRadioButton(question)}
+                    checked={selectedAnswer === question.rating}
                 />
-                <span className='question-text' dangerouslySetInnerHTML={{ __html: question.text }} />    
-            </label>
+                <label name='question' className='question-box' key={question.id} htmlFor={`question-id-${question.id}`}>
+                    <span className='question-text' dangerouslySetInnerHTML={{ __html: question.text.trim() }} />    
+                </label>
+            </div>
         );
     }
 
     const displayQuestionList = () => {
         const questions = filterQuestionsByType(allQuestions, types[typeIndex]);
-        return (<div>
-            <div className='prompt-text'>
-                Please select the answer which best describes your skill level.
+        return (
+            <div>
+                <div className='prompt-text'>
+                    Please select the answer which best describes your skill level.
+                </div>
+                <div className='type'>
+                    <span className='type-text'>{types[typeIndex]} Statements</span>
+                </div>
+                <div className='questions'> 
+                    {questions.map(question => displayQuestion(question))}
+                </div>
+                <div className='error-text'>
+                    {errorText}
+                </div>
+                <div class='nav'>
+                    {(typeIndex > 0 && typeIndex < types.length) && 
+
+                        <label className='back-button-label' htmlFor='back-button-input'>
+                            <input id='back-button-input' className='back-button-input' type='button' value='Back' onClick={() => handleClickBackButton()} />
+                            <span className='back-button-text'>Back</span>
+                        </label>
+                    }
+
+                    {(typeIndex + 1 >= types.length) || endIfSelected ? (
+
+                        <label className='submit-button-label' htmlFor='submit-button-input'>
+                            <input id='submit-button-input' className='submit-button-input' type='button' value='Submit' onClick= {() => handleClickSubmitButton()} />
+                            <span className='submit-button-text'>Submit</span>
+                        </label>
+
+                    ) : (
+
+                        <label className='next-button-label' htmlFor='next-button-input'>
+                            <input id='next-button-input' className='next-button-input' type='button' value='Next' onClick= {() => handleClickNextButton()} />
+                            <span className='next-button-text'>Next</span>
+                        </label>
+                    )}
+
+                </div>
             </div>
-            <div className='type'>
-               <span className='type-text'>{types[typeIndex]} Statements</span>
+        )
+    }
+
+    const handleNameChange = (value) => {
+        setNameInput(value);
+    }
+
+    const startHelper = () => {
+        setNameComplete(true);
+    }
+
+    const displayNameForm = () => {
+        return (
+            <div className='name-form'>
+                <div className='name-prompt'>What is your name?</div>
+                <input 
+                    type='text' 
+                    className='name-input'
+                    placeholder='Your Name'
+                    onChange={(event) => handleNameChange(event.target.value)}
+                />
+                <br />
+                <input 
+                    id='submit-name-button'
+                    type='submit'
+                    value='Start!'
+                    onClick={() => startHelper()}
+                    disabled={!nameIsValid}
+                />
+                <label htmlFor='submit-name-button'>
+                    <div className='submit-name-button'>
+                        Start
+                    </div>
+                </label>
             </div>
-            <div className='questions'> 
-                {questions.map(question => displayQuestion(question))}
-            </div>
-            <div className='error-text'>
-                {errorText}
-            </div>
-            {(typeIndex > 0 && typeIndex < types.length) && 
-                <input className='back-button' type='button' value='Back' onClick={() => handleClickBackButton()} />
-            }
-            {(typeIndex + 1 >= types.length) || endIfSelected ? (
-                <input className='submit-button' type='button' value='Submit' onClick= {() => handleClickSubmitButton()} />
-            ) : (
-                <input className='next-button' type='button' value='Next' onClick= {() => handleClickNextButton()} />
-            )}
-        </div>)
+        );
     }
 
     const startOver = () => {
@@ -179,6 +240,7 @@ const RatingHelper = () => {
         return question.text;
     }
 
+    // Move to showResult.js
     const displayResults = (generalOnly) => {
         console.log('types in displayResults()', types);
         console.log('answers in displayResults()', answers);
@@ -273,12 +335,35 @@ const RatingHelper = () => {
             setFinalRating(averageRating.toFixed(1));
         }
     }, [end]);
+
+    React.useEffect(() => {
+        var alphaRegex = /^[-a-zA-Z ]*$/;
+        if (nameInput.length > 0 && alphaRegex.test(nameInput)) {
+            setNameIsValid(true);
+        } else {
+            setNameIsValid(false);
+        }
+    }, [nameInput]);
+
+    React.useEffect(() => {
+        console.log('nameInput in useEffect() for nameIsValid', nameIsValid);
+    }, [nameIsValid]);
        
     return (
-        <div> 
-            <div className='title'>NTRP Self-Rating Helper</div>
-            <hr />
-            {displayQuestionList()}
+        <div className='main'> 
+            <div className='top-bar'>
+                <div className='title'>NTRP Self-Rating Helper</div>
+                <div className='brand'>
+                    <div className='brand-intro-text'>by</div>
+                    <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />
+                    <div className='brand-text'>
+                        PRECISION TENNIS
+                    </div>
+                </div>
+            </div>
+            <div className='content'>
+                {nameComplete ? displayQuestionList() : displayNameForm()}
+            </div>
         </div>
     );
 }

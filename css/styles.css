@@ -121,3 +121,17 @@ body {
     color: white;
     padding: 5px;
 }
+
+.submit-name-button {
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.name-prompt {
+    margin: 10px;
+}
+
+.name-input {
+    font-size: 18px;
+}

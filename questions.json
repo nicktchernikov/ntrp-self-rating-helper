@@ -9,7 +9,7 @@
 
     {
         "id" : 1,
-        "text" : "<b>I have been very briefly introduced to the game</b>, but I have difficulty playing the game due to a lack of consistency in rallying and serving.",
+        "text" : "<b>I have been very briefly introduced to the game</b>, but I have <b><u>extreme difficulty</u></b> playing the game due to a lack of consistency in rallying and serving.",
         "rating" : "1.5-2.0",
         "endIfSelected" : true,
         "type" : "general"
