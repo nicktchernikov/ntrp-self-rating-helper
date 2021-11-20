@@ -66,7 +66,7 @@ const ShowResult = () => {
                             </table>
                             <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
                             <label className='start-over-button' htmlFor='start-over-button'>
-                                <span className='start-over-button-text'>Take the Test</span>
+                                <span className='start-over-button-text'></span>
                             </label>
                         </div>
                     </div>

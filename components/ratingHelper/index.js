@@ -352,14 +352,14 @@ const RatingHelper = () => {
     return (
         <div className='main'> 
             <div className='top-bar'>
-                <div className='title'>NTRP Self-Rating Helper</div>
-                <div className='brand'>
+                <a href='https://precisiontennis./ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
+                <a href='https://precisiontennis.ca' className='brand'>
                     <div className='brand-intro-text'>by</div>
                     <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />
                     <div className='brand-text'>
                         PRECISION TENNIS
                     </div>
-                </div>
+                </a>
             </div>
             <div className='content'>
                 {nameComplete ? displayQuestionList() : displayNameForm()}
