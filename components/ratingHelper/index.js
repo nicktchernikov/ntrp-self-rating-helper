@@ -8,7 +8,6 @@ const RatingHelper = () => {
     const [finalRating, setFinalRating] = React.useState(null);
     const [end, setEnd] = React.useState(false);
     const [endIfSelected, setEndIfSelected] = React.useState(false);
-
     const [nameInput, setNameInput] = React.useState('');
     const [nameComplete, setNameComplete] = React.useState(false);
     const [nameIsValid, setNameIsValid] = React.useState(false);
@@ -26,17 +25,16 @@ const RatingHelper = () => {
         for (let i = 0; i < answers.length; i++) {
             postData.append(i, answers[i]);
         }
+        // postData.append('name', nameInput);
+
         fetch('addResult.php', {
-            method: 'POST',
-            body: postData
-        })
-        .then(data => data.json())
-        .then(res => {
-            console.log('POST Request complete, resultId: ', res.resultId);
-            window.location.replace(
-                `/result.php?id=${res.resultId}`
-            )
-        });
+                method: 'POST',
+                body: postData
+            })
+            .then(response => response.json())
+            .then(data => {
+                window.location.replace(`/result.php?id=${data.resultId}`);
+            });
     }
 
     const storeAnswer = () => {
@@ -48,43 +46,38 @@ const RatingHelper = () => {
         answers[typeIndex] = selectedAnswer;
         setAnswers(answers);  
     }
+    
+    const storeOrReplaceAnswer = () => {
+        if (answers[typeIndex] === null) {
+            storeAnswer();
+        } else {
+            replaceAnswer();
+        }
+    }
 
     const handleClickNextButton = () => {
         console.log('Clicked next!');
         if(selectedAnswer !== undefined) {
             if (endIfSelected) {
                 if (selectedAnswer !== null) {
-                    if (answers[typeIndex] === null) {
-                        storeAnswer();
-                    } else {
-                        replaceAnswer();
-                    }
+                    storeOrReplaceAnswer();
                 }
                 setEnd(true);
             } else {
-                if (answers[typeIndex] === null) {
-                    storeAnswer();
-                } else {
-                    replaceAnswer();
-                }
+                storeOrReplaceAnswer();
                 setTypeIndex(typeIndex + 1);
                 console.log('answers in handleClickNextButton()', answers);
             }
             setErrorText(null);
         } else {
             setErrorText('Please select an option above.');
-            console.log('Displaying error message.');
         }
     }
 
     const handleClickBackButton = () => {
         console.log('Clicked back!');
         if (selectedAnswer !== null) {
-            if (answers[typeIndex] === null) {
-                storeAnswer();
-            } else {
-                replaceAnswer();
-            }
+            storeOrReplaceAnswer();
         }
         console.log('answers in handleClickBackButton()', answers);
 
