@@ -20,14 +20,16 @@ const RatingHelper = () => {
         'serve'
     ];
 
-    const postToMongo = (answers) => {
+    const saveToDatabase = (answers) => {
         const postData = new FormData();
         for (let i = 0; i < answers.length; i++) {
-            postData.append(i, answers[i]);
+            let key = `rating-${types[i].replace(' ', '-')}`;
+            postData.append(key, answers[i]);
         }
-        // postData.append('name', nameInput);
+        postData.append('data-name', nameInput);
+        postData.append('data-date', (new Date()).toDateString());
 
-        fetch('addResult.php', {
+        fetch('saveResult.php', {
                 method: 'POST',
                 body: postData
             })
@@ -97,7 +99,7 @@ const RatingHelper = () => {
         }
 
         // Store results in MySQL database
-        (types[typeIndex] === 'general' && endIfSelected) ? postToMongo([answers[0]]) : postToMongo(answers);
+        (types[typeIndex] === 'general' && endIfSelected) ? saveToDatabase([answers[0]]) : saveToDatabase(answers);
     }
 
     const handleClickRadioButton = (question) => {
@@ -152,13 +154,15 @@ const RatingHelper = () => {
                 <div className='questions'> 
                     {questions.map(question => displayQuestion(question))}
                 </div>
-                <div className='error-text'>
-                    {errorText}
-                </div>
+                {errorText && (
+                    <div className='error-text'>
+                        {errorText}
+                    </div>
+                )}
                 <div class='nav'>
                     {(typeIndex > 0 && typeIndex < types.length) && 
 
-                        <label className='back-button-label' htmlFor='back-button-input'>
+                        <label className='pt-cta back-button-label' htmlFor='back-button-input'>
                             <input id='back-button-input' className='back-button-input' type='button' value='Back' onClick={() => handleClickBackButton()} />
                             <span className='back-button-text'>Back</span>
                         </label>
@@ -166,14 +170,14 @@ const RatingHelper = () => {
 
                     {(typeIndex + 1 >= types.length) || endIfSelected ? (
 
-                        <label className='submit-button-label' htmlFor='submit-button-input'>
+                        <label className='pt-cta submit-button-label' htmlFor='submit-button-input'>
                             <input id='submit-button-input' className='submit-button-input' type='button' value='Submit' onClick= {() => handleClickSubmitButton()} />
                             <span className='submit-button-text'>Submit</span>
                         </label>
 
                     ) : (
 
-                        <label className='next-button-label' htmlFor='next-button-input'>
+                        <label className='pt-cta next-button-label' htmlFor='next-button-input'>
                             <input id='next-button-input' className='next-button-input' type='button' value='Next' onClick= {() => handleClickNextButton()} />
                             <span className='next-button-text'>Next</span>
                         </label>
@@ -195,7 +199,7 @@ const RatingHelper = () => {
     const displayNameForm = () => {
         return (
             <div className='name-form'>
-                <div className='name-prompt'>What is your name?</div>
+                <div className='name-prompt'>What is your name? <suepr></suepr></div>
                 <input 
                     type='text' 
                     className='name-input'
@@ -203,7 +207,7 @@ const RatingHelper = () => {
                     onChange={(event) => handleNameChange(event.target.value)}
                 />
                 <br />
-                <input 
+                <input
                     id='submit-name-button'
                     type='submit'
                     value='Start!'
@@ -211,7 +215,7 @@ const RatingHelper = () => {
                     disabled={!nameIsValid}
                 />
                 <label htmlFor='submit-name-button'>
-                    <div className='submit-name-button'>
+                    <div className='submit-name-button pt-cta'>
                         Start
                     </div>
                 </label>
@@ -288,10 +292,26 @@ const RatingHelper = () => {
                         })}
                     </tbody>
                 </table>
-                <input className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
+                <input className="pt-cta" type="button" value="Start Over" onClick={() => startOver()} />
             </div>
         );
     }
+
+    React.useEffect(() => {
+        const listener = event => {
+          if (event.code === "Enter" || event.code === "NumpadEnter") {
+            console.log("Enter key was pressed. Run your function.");
+            event.preventDefault();
+            if (document.querySelector('#submit-name-button').disabled === false) {
+                startHelper();
+            }
+          }
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
+          document.removeEventListener("keydown", listener);
+        };
+      }, []);
 
     React.useEffect(async () => {
         fetchAllQuestions().then((questionData) => setAllQuestions(questionData));
@@ -339,14 +359,14 @@ const RatingHelper = () => {
     }, [nameInput]);
 
     React.useEffect(() => {
-        console.log('nameInput in useEffect() for nameIsValid', nameIsValid);
+        console.log('nameIsValid in useEffect() for nameIsValid', nameIsValid);
     }, [nameIsValid]);
        
     return (
         <div className='main'> 
             <div className='top-bar'>
-                <a href='https://precisiontennis./ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
-                <a href='https://precisiontennis.ca' className='brand'>
+                <a href='/' className='title'>NTRP Self-Rating Helper</a>
+                <a href='/' className='brand'>
                     <div className='brand-intro-text'>by</div>
                     <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />
                     <div className='brand-text'>

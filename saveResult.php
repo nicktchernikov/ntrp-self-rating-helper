@@ -7,15 +7,25 @@
     $db = $client->precisiontennis;
 
     // Retrieve $_POST data
-    $answers = $_POST ?? null;
+    $formData = $_POST ?? null;
+
+    // Sort post data
+    $ratings = [];
+    foreach($formData as $key => $value) {
+        if (strpos($key, 'rating') !== false) {
+            $ratings[] = $value;
+        }
+    }
+    $name = $formData['data-name'];
+    $date = $formData['data-date'];
 
     // If no GET param, return an error in JSON format
-    if (!$answers) {
+    if (!$ratings) {
         echo json_encode(['error' => 'true']);
         exit;
     }
     
-    // Fake doc
+    // Fake doc for testing
     // $doc = [
     //     "resultId" => uniqid(),
     //     "ntrp" => rand(2, 4) . '.' . rand(0, 9),
@@ -28,25 +38,27 @@
     // ];
 
     // Caculate NTRP value
-    if (count($answers) > 1) {
-        $answersCopy = $answers;
-        array_shift($answersCopy);
-        $ntrp = array_sum($answersCopy) / count($answersCopy);
+    if (count($ratings) > 1) {
+        $ratingsCopy = $ratings;
+        array_shift($ratingsCopy);
+        $ntrp = array_sum($ratingsCopy) / count($ratingsCopy);
         $ntrp = round($ntrp, 1);
     } else {
-        $ntrp = $answers[0];
+        $ntrp = $ratings[0];
     }
 
     // Real doc
     $doc = [
         "resultId" => uniqid(),
+        "name" => $name,
+        "date" => $date,
         "ntrp" => $ntrp,
         "answers" => [
-            'general' => $answers[0],
-            'groundstrokes' => $answers[1], 
-            'net play' => $answers[2], 
-            'return of serve' => $answers[3],
-            'serve' => $answers[4]
+            'general' => $ratings[0],
+            'groundstrokes' => $ratings[1], 
+            'net play' => $ratings[2], 
+            'return of serve' => $ratings[3],
+            'serve' => $ratings[4]
         ]
     ];
 

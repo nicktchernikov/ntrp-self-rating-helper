@@ -25,7 +25,9 @@
     foreach ($db->userResults->find($docQuery) as $doc) {
         $data = [
             'ntrp' => $doc->ntrp,
-            'answers' => $doc->answers
+            'answers' => $doc->answers,
+            'name' => $doc->name,
+            'date' => $doc->date
         ];
     }
 
