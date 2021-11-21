@@ -48,7 +48,7 @@ const ShowResult = () => {
                     <div className='content'>
                         <div className='results'>
                             <table className='results-table'>
-                                <caption className='rating'> Name: <span class='result-item'>{name}</span> <br />
+                                <caption className='rating'> Name: <code class='result-item'>{name}</code> <br />
                                 <span className='rating-ntrp'> {(ntrp.toString().indexOf('+') ? ntrp : ntrp.toFixed(1))} NTRP</span> 
                                 </caption>
                                 <thead>

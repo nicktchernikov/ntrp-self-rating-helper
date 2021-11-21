@@ -74,6 +74,8 @@ const RatingHelper = () => {
         } else {
             setErrorText('Please select an option above.');
         }
+
+        window.scrollTo(0, 0);
     }
 
     const handleClickBackButton = () => {
@@ -112,6 +114,11 @@ const RatingHelper = () => {
         }
         setSelectedAnswer(question.rating);
         console.log('answers state in handleClickRadioButton()', answers);
+
+        if (document.querySelectorAll('.nav').length) {
+            document.querySelector('.nav').scrollIntoView();
+        }
+
     }
 
     const fetchAllQuestions = async () => {

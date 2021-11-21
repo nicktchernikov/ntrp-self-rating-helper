@@ -29,8 +29,10 @@ body {
 
 .question-box:hover {
     cursor: pointer;
-    background-color: #8dd5bb;
-    color: black;
+    /*background-color: #dcf2ea;*/
+    border-radius: 5px;
+    outline: 5px solid #fed136;
+    /*color: black;*/
 }
 
 .radio-selected {
@@ -45,7 +47,7 @@ input[type="radio"] {
 }
 
 input[name="question"]:checked + label {
-    background-color: #8dd5bb;
+    background-color: #fed136;
     color: black;
 }
 
