@@ -388,3 +388,8 @@ caption.rating {
     border-right: none;
     border-left: none;
 }
+
+.next-button-label.pt-cta {
+    border-right: none;
+    border-left: none;
+}
