@@ -35,7 +35,7 @@ const RatingHelper = () => {
             })
             .then(response => response.json())
             .then(data => {
-                window.location.replace(`/result.php?id=${data.resultId}`);
+                window.location.replace(`/ntrp-self-rating-helper/result/${data.resultId}`);
             });
     }
 
@@ -65,17 +65,23 @@ const RatingHelper = () => {
                     storeOrReplaceAnswer();
                 }
                 setEnd(true);
+
+
+       		window.scrollTo(0, 0);
+
             } else {
                 storeOrReplaceAnswer();
                 setTypeIndex(typeIndex + 1);
                 console.log('answers in handleClickNextButton()', answers);
+
+        	window.scrollTo(0, 0);
+
             }
             setErrorText(null);
         } else {
             setErrorText('Please select an option above.');
         }
-
-        window.scrollTo(0, 0);
+		
     }
 
     const handleClickBackButton = () => {
@@ -115,9 +121,9 @@ const RatingHelper = () => {
         setSelectedAnswer(question.rating);
         console.log('answers state in handleClickRadioButton()', answers);
 
-        if (document.querySelectorAll('.nav').length) {
-            document.querySelector('.nav').scrollIntoView();
-        }
+        //if (document.querySelectorAll('.nav').length) {
+            //document.querySelector('.nav').scrollIntoView();
+        //}
 
     }
 
@@ -372,7 +378,7 @@ const RatingHelper = () => {
     return (
         <div className='main'> 
             <div className='top-bar'>
-                <a href='/' className='title'>NTRP Self-Rating Helper</a>
+                <a href='/ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
                 <a href='/' className='brand'>
                     <div className='brand-intro-text'>by</div>
                     <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />

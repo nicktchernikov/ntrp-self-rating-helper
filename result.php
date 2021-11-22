@@ -2,6 +2,6 @@
 
 <?php include('_openGraph.php'); ?>
 
-<script src="components/showResult/index.js" type="text/babel"></script>
+<script src="/ntrp-self-rating-helper/components/showResult/index.js" type="text/babel"></script>
 
 <?php include('_footer.php') ?>

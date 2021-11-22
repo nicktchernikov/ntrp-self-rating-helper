@@ -11,8 +11,9 @@ const ShowResult = () => {
 
     React.useEffect(() => {
         const query = new URL(window.location.href);
-        const resultId = query.searchParams.get('id').trim();
-        fetch(`/getResult.php?resultId=${resultId}`)
+        // const resultId = query.searchParams.get('id').trim();
+	const resultId = query.pathname.split('/')[3];
+        fetch(`/ntrp-self-rating-helper/getResult.php?resultId=${resultId}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -36,20 +37,20 @@ const ShowResult = () => {
             ) : (
                 <div className='main'> 
                     <div className='top-bar'>
-                        <a href='/' className='title'>NTRP Self-Rating Helper</a>
-                        <div className='brand'>
+                        <a href='/ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
+                        <a href='/' className='brand'>
                             <div className='brand-intro-text'>by</div>
                             <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />
                             <div className='brand-text'>
                                 PRECISION TENNIS
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div className='content'>
                         <div className='results'>
                             <table className='results-table'>
                                 <caption className='rating'> Name: <code class='result-item'>{name}</code> <br />
-                                <span className='rating-ntrp'> {(ntrp.toString().indexOf('+') ? ntrp : ntrp.toFixed(1))} NTRP</span> 
+                                <span className='rating-ntrp'> {( (ntrp.toString().indexOf('+') > -1) || (ntrp.toString().indexOf('-') > -1) ) ? ntrp : ntrp.toFixed(1)} NTRP</span> 
                                 </caption>
                                 <thead>
                                     <th>Stroke</th>
@@ -63,7 +64,7 @@ const ShowResult = () => {
                                                 {answer[0]}
                                             </td>
                                             <td>
-                                                {answer[1] ? answer[1] : (ntrp.toString().indexOf('+') || ntrp.indexOf('-') ? ntrp : ntrp.toFixed(1))}
+                                                {answer[1] ? answer[1] : ( (ntrp.toString().indexOf('+') > -1) || (ntrp.toString().indexOf('-') > -1) ) ? ntrp : ntrp.toFixed(1)}
                                             </td>
                                         </tr>
                                     );

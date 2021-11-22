@@ -337,7 +337,7 @@ input:disabled + label > div {
 }
 
 .results-table, .results-table th, .results-table td {
-    margin: 20px;
+    margin: 30px;
     border: 1px solid white;
     border-collapse: collapse;
 }
