@@ -14,6 +14,7 @@ const RatingHelper = () => {
 
     const baseUrl = 'https://precisiontennis.ca'
     const baseFolder = 'rating';
+    const resultBase = 'my-ntrp-rating';
 
     let types = [
         'general', 
@@ -38,7 +39,7 @@ const RatingHelper = () => {
             })
             .then(response => response.json())
             .then(data => {
-                window.location.replace(`/${baseFolder}/result/${data.resultId}`);
+                window.location.replace(`/${resultBase}/${data.resultId}`);
             });
     }
 

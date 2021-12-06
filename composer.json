@@ -1,5 +1,6 @@
 {
     "require": {
-        "mongodb/mongodb": "^1.10"
+        "mongodb/mongodb": "^1.10",
+        "delight-im/random": "^1.0"
     }
 }

@@ -15,7 +15,7 @@ const ShowResult = () => {
     React.useEffect(() => {
         const query = new URL(window.location.href);
         // const resultId = query.searchParams.get('id').trim();
-	const resultId = query.pathname.split('/')[3];
+	      const resultId = query.pathname.split('/')[2];
         fetch(`${baseUrl}/${baseFolder}/getResult.php?resultId=${resultId}`)
             .then(response => response.json())
             .then(data => {

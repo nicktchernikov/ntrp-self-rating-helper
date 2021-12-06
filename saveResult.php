@@ -1,6 +1,9 @@
 <?php 
     // Import MongoDB drivers, etc
     require('vendor/autoload.php');
+  
+    // Rename Random class
+    use \Delight\Random\Random as Random;
 
     // Initiate connection on Localhost with MongoDB service
     $client = new MongoDB\Client('mongodb://127.0.0.1:27017');
@@ -49,7 +52,8 @@
 
     // Real doc
     $doc = [
-        "resultId" => uniqid(),
+        // "resultId" => uniqid(),
+        "resultId" => Random::alphaHumanString(6),
         "name" => $name,
         "date" => $date,
         "ntrp" => $ntrp,
