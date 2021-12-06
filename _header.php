@@ -14,10 +14,19 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/rating/css/styles.css">
+        <link rel="stylesheet" href="/self-rating-helper/css/styles.css">
+
+        <link href="https://app.precisiontennis.ca/img/favicon.jpg" rel="shortcut icon" type="image/x-icon">
         
-        <?php include('_open-graph.php'); ?>
-    </head>
+        <?php 
+          if (strpos($_SERVER['REQUEST_URI'], 'my-ntrp-rating') !== FALSE): 
+            include('_open-graph.php'); 
+          else: 
+        ?>
+        <meta property='og:image' content='https://app.precisiontennis.ca/img/precision_tennis_logo.jpg' />
+        <meta property='og:description' content='The easy way to get your tennis NTRP skill level!' />
+        <?php endif; ?>
+      </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

@@ -13,7 +13,7 @@ const RatingHelper = () => {
     const [nameIsValid, setNameIsValid] = React.useState(false);
 
     const baseUrl = 'https://precisiontennis.ca'
-    const baseFolder = 'rating';
+    const baseFolder = 'self-rating-helper';
     const resultBase = 'my-ntrp-rating';
 
     let types = [

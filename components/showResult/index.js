@@ -7,10 +7,10 @@ const ShowResult = () => {
     const [date, setDate] = React.useState('');
  
     const baseUrl = 'https://precisiontennis.ca';
-    const baseFolder = '/rating';
+    const baseFolder = 'self-rating-helper';
 
     const fetchAllQuestions = async () => {
-      return (await fetch('/rating/questions.json')).json();
+      return (await fetch(`/${baseFolder}/questions.json`)).json();
     }
 
     const filterQuestionsByType = (allQuestions, currentType) => {
@@ -39,7 +39,7 @@ const ShowResult = () => {
     }
     
     const startOver = () => {
-      window.location.href = '/rating';
+      window.location.href = `/${baseFolder}`;
     }
 
     React.useEffect(() => {
@@ -112,18 +112,18 @@ const ShowResult = () => {
                             <span style={{'marginBottom' : '10px' }}>Date of Rating:</span> <code className='result-item'>{date}</code>
 
                             <div className='pt-copy-link-header'> 
-                                Share this rating: 
+                                To share your rating, copy and paste this link: 
                             </div>
                             <input 
                                 className='pt-copy-link' 
                                 type='text'
-                                value={window.location.href}
+                                value={window.location.href.split('?')[0]}
                                 onClick={(e) => e.target.select()} 
                             />
 
                             <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
                             <label className='pt-cta start-over-button' htmlFor='start-over-button'>
-                                <span className='start-over-button-text'> Get Your Level! </span>
+                                <span className='start-over-button-text'> Get Your Level </span>
                             </label>
                         </div>
                     </div>

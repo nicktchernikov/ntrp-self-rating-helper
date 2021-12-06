@@ -242,7 +242,7 @@
 
     {
         "id" : 30,
-        "text" : "I am capable of competing in Open level tournaments (5.0+)",
+        "text" : "I am capable of competing in Open level tournaments (5.0+).",
         "rating" : "5.0-5.5",
         "endIfSelected" : true,
         "type" : "general"

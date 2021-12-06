@@ -453,10 +453,10 @@ caption.rating {
 
 .pt-copy-link {
     font-family: 'Open Sans', sans-serif;
-    font-size: 12px !important;
+    font-size: 14px !important;
     padding: 5px;
     border-radius: 5px;
     width: 100%;
-    max-width: 300px;
+    max-width: 325px;
     cursor: pointer;    
 }
