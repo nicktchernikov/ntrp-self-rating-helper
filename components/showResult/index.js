@@ -23,12 +23,17 @@ const ShowResult = () => {
       const typeQuestions = filterQuestionsByType(allQuestions, type);
       typeQuestions.forEach(question => {
         if (question.rating === rating) {
-          console.log(question.text);
           description = question.text;
         }
       });
+      if (description === 'None of the above.') {
+        description = '';
+      }
       if (description !== defaultDescription) {
         description = '"' + description + '"';
+      }
+      if (description == '""') {
+        description = 'N/A';
       }
       return description;
     }
@@ -95,7 +100,7 @@ const ShowResult = () => {
                                             <td>
                                                 {answer[1] ? answer[1] : ( (ntrp.toString().indexOf('+') > -1) || (ntrp.toString().indexOf('-') > -1) ) ? ntrp : ntrp.toFixed(1)}
                                             </td>
-                                            <td class='description'> 
+                                            <td className='description'> 
                                              {getDescription(answer[0], answer[1])}
                                             </td>
                                         </tr>
@@ -107,7 +112,7 @@ const ShowResult = () => {
                             <span style={{'marginBottom' : '10px' }}>Date of Rating:</span> <code className='result-item'>{date}</code>
 
                             <div className='pt-copy-link-header'> 
-                                Share this rating with others: 
+                                Share this rating: 
                             </div>
                             <input 
                                 className='pt-copy-link' 
@@ -118,7 +123,7 @@ const ShowResult = () => {
 
                             <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
                             <label className='pt-cta start-over-button' htmlFor='start-over-button'>
-                                <span className='start-over-button-text'> Start a new one </span>
+                                <span className='start-over-button-text'> Get Your Level! </span>
                             </label>
                         </div>
                     </div>

@@ -8,7 +8,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>NTRP Self-Rating Helper</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +16,7 @@
 
         <link rel="stylesheet" href="/rating/css/styles.css">
         
+        <?php include('_open-graph.php'); ?>
     </head>
     <body>
         <!--[if lt IE 7]>

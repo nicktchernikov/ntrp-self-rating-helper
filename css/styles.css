@@ -23,6 +23,8 @@ body {
 
 .questions {
     margin-top: 10px;
+    
+    max-width: 768px;
 }
 
 .question {
