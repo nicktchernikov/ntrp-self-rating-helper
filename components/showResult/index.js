@@ -5,18 +5,20 @@ const ShowResult = () => {
     const [name, setName] = React.useState('');
     const [date, setDate] = React.useState('');
  
+    const baseUrl = 'https://precisiontennis.ca';
+    const baseFolder = '/rating';
+
     const startOver = () => {
-        window.location.href = '/';
+        window.location.href = '/rating';
     }
 
     React.useEffect(() => {
         const query = new URL(window.location.href);
         // const resultId = query.searchParams.get('id').trim();
 	const resultId = query.pathname.split('/')[3];
-        fetch(`/ntrp-self-rating-helper/getResult.php?resultId=${resultId}`)
+        fetch(`${baseUrl}/${baseFolder}/getResult.php?resultId=${resultId}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setAnswers(Object.entries(data.answers));
                 setNtrp(data.ntrp);
                 setName(data.name);
@@ -37,7 +39,7 @@ const ShowResult = () => {
             ) : (
                 <div className='main'> 
                     <div className='top-bar'>
-                        <a href='/ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
+                        <a href={baseUrl + '/' + baseFolder} className='title'>NTRP Self-Rating Helper</a>
                         <a href='/' className='brand'>
                             <div className='brand-intro-text'>by</div>
                             <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />
@@ -49,7 +51,7 @@ const ShowResult = () => {
                     <div className='content'>
                         <div className='results'>
                             <table className='results-table'>
-                                <caption className='rating'> Name: <code class='result-item'>{name}</code> <br />
+                                <caption className='rating'> Name: <code className='result-item'>{name}</code> <br />
                                 <span className='rating-ntrp'> {( (ntrp.toString().indexOf('+') > -1) || (ntrp.toString().indexOf('-') > -1) ) ? ntrp : ntrp.toFixed(1)} NTRP</span> 
                                 </caption>
                                 <thead>
@@ -71,11 +73,23 @@ const ShowResult = () => {
                                 })}
                                 </tbody>
                             </table>
-                            <span style={{'marginBottom' : '10px' }}>Date of Rating:</span> <code class='result-item'>{date}</code>
-                            {/* <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
-                            <label className='start-over-button' htmlFor='start-over-button'>
-                                <span className='start-over-button-text'> Start Over </span>
-                            </label> */}
+
+                            <span style={{'marginBottom' : '10px' }}>Date of Rating:</span> <code className='result-item'>{date}</code>
+
+                            <div className='pt-copy-link-header'> 
+                                Share these results with others: 
+                            </div>
+                            <input 
+                                className='pt-copy-link' 
+                                type='text'
+                                value={window.location.href}
+                                onClick={(e) => e.target.select()} 
+                            />
+
+                            <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
+                            <label className='pt-cta start-over-button' htmlFor='start-over-button'>
+                                <span className='start-over-button-text'> Start a new one </span>
+                            </label>
                         </div>
                     </div>
                 </div>

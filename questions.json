@@ -9,7 +9,7 @@
 
     {
         "id" : 1,
-        "text" : "<b>I have been very briefly introduced to the game</b>, but I have <b><u>extreme difficulty</u></b> playing the game due to a lack of consistency in rallying and serving.",
+        "text" : "I have been very briefly introduced to the game, but I have extreme difficulty playing the game due to a lack of consistency in rallying and serving.",
         "rating" : "1.5-2.0",
         "endIfSelected" : true,
         "type" : "general"
@@ -17,7 +17,7 @@
 
     {
         "id" : 2,
-        "text" : "I can get the ball in play but lack control, resulting in inconsistent rallies. I often chooses to hit forehands instead of backhands.",
+        "text" : "I lack control on my groundstrokes, resulting in inconsistent rallies. I often chooses to hit forehands instead of backhands.",
         "rating" : "2.0",
         "endIfSelected" : false,
         "type" : "groundstrokes"
@@ -33,7 +33,7 @@
 
     {
         "id" : 4,
-        "text" : "I am able to rally consistently 10 balls in a row on forehands and backhands. I am able to maintain a rally when receiving high, short, or wide balls, assuming the ball is received at a moderate pace, especially on the forehand side.",
+        "text" : "I am able to consistently rally 10 balls in a row on forehands and backhands at a moderate to faster pace. I am able to maintain a rally when receiving high, short, or wide balls with some success.",
         "rating" : "3.0",
         "endIfSelected" : false,
         "type" : "groundstrokes"
@@ -41,7 +41,7 @@
 
     {
         "id" : 5,
-        "text" : "I am able to move the opponent around the court or hit harder when receiving easier balls. I can execute approach shots with some consistency (more than 50% success rate). ",
+        "text" : "I am able to move the opponent around the court or hit harder when receiving easier balls. I can execute approach shots with some consistency.",
         "rating" : "3.5",
         "endIfSelected" : false,
         "type" : "groundstrokes"
@@ -49,7 +49,7 @@
 
     {
         "id" : 6,
-        "text" : "I am able to develop points with some consistency by using a reliable combination of shots. I am erratic when attempting a quality shot, when receiving fast or wide balls, and when attempting passing shots.",
+        "text" : "I am able to develop points with consistency by using a reliable combination of shots. I am erratic when attempting a quality shot, when receiving fast or wide balls, or when attempting passing shots.",
         "rating" : "4.0",
         "endIfSelected" : false,
         "type" : "groundstrokes"
@@ -57,7 +57,7 @@
 
     {
         "id" : 7,
-        "text" : "I can use a variety of spins. I am beginning to develop a dominant shot or good steadiness. I am erratic when attempting a quality shot in two of the following situations: receiving fast balls, wide balls, and in passing shot situations.",
+        "text" : "I can use a variety of spins. I am beginning to develop a dominant shot and/or good steadiness. I am a bit erratic when attempting a quality shot in two of the following situations: when receiving fast balls, wide balls, and in passing shot situations.",
         "rating" : "4.5",
         "endIfSelected" : false,
         "type" : "groundstrokes"
@@ -65,15 +65,16 @@
 
     {
         "id" : 8,
-        "text" : "I am able to maintain a consistent rally, 10 balls in a row on faster balls. I have very steady strokes or a dominant shot. I periodically succeed (50% success rate) when attempting a quality shot when receiving fast or wide balls, and in passing shot situations.",
+        "text" : "I am able to maintain a rally of 10 balls in a row on fast balls. I have very steady strokes and/or a dominant shot. I periodically succeed when attempting a quality shot when receiving fast or wide balls, and in passing shot situations.",
         "rating" : "5.0",
         "endIfSelected" : false,
         "type" : "groundstrokes"
     },
     
     {
+
         "id" : 9,
-        "text" : "<b>I have an inconsistent return.</b> I tend to position myself in a manner to protect weaknesses.",
+        "text" : "I have an inconsistent return. I tend to position myself in a manner to protect weaknesses.",
         "rating" : "2.0",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -81,7 +82,7 @@
 
     {
         "id" : 10,
-        "text" : "In singles, I am consistent when returning towards the middle of the court. In doubles, I have difficulty returning crosscourt to start the point.",
+        "text" : "I am somewhat consistent when returning towards the middle of the court.",
         "rating" : "2.5",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -89,7 +90,7 @@
 
     {
         "id" : 11,
-        "text" : "I can control the direction of the ball in both singles and doubles, when receiving a serve of moderate pace.",
+        "text" : "I can control the direction of the ball when receiving a serve of moderate pace.",
         "rating" : "3.0",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -97,7 +98,7 @@
 
     {
         "id" : 12,
-        "text" : "I can return fast serves or well-placed serves with defensive actions. When receiving an easy second serve, I can return with pace or directional control; I can approach the net in doubles after returning.",
+        "text" : "I can return fast serves or well placed serves with defensive actions. When receiving an easy second serve, I can return with pace or directional control.",
         "rating" : "3.5",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -105,7 +106,7 @@
 
     {
         "id" : 13,
-        "text" : "I only have difficulty in returning spin serves when receiving very fast serves. On moderately paced serves, I can construct the point through hitting a good shot or exploiting an opponent's weakness. In doubles, I can vary returns effectively on moderately paced serves.",
+        "text" : "I only have difficulty in returning spin serves or when receiving very fast serves. On moderately paced serves, I can construct the point through hitting a good shot or exploiting an opponent's weakness. I occasionally struggle to return second serves.",
         "rating" : "4.0",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -113,7 +114,7 @@
 
     {
         "id" : 14,
-        "text" : "Off first serves, I can defend consistently but very inconsistent (less then 30% success) when attempting an aggressive return. In doubles, I have difficulty (less than 50% success) when returning a first serve into the feet of the incoming serve and volleyer.",
+        "text" : "When recieving fast first serves, I can defend serves consistently but I am very inconsistent when attempting an aggressive return. I am very consitent returning second serves.",
         "rating" : "4.5",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -121,7 +122,7 @@
 
     {
         "id" : 15,
-        "text" : "I periodically succeed (50% success) at sending an aggressive return off fast first serves using my dominant shot (forehand or backhand). In doubles, I can return at the feet of serve and volleyer consistently.",
+        "text" : "I periodically succeed at sending an aggressive return off fast first serves using my dominant shot (forehand or backhand). I almost never miss returning a second serve, and I am often able to attack it and win the point.",
         "rating" : "5.0",
         "endIfSelected" : false,
         "type" : "Return of Serve"
@@ -129,7 +130,7 @@
 
     {
         "id" : 16,
-        "text" : "In singles, I am reluctant to come to the net. In doubles, I understand the basic positioning, but I am only comfortable only with the forehand volley; I avoid the backhand volley and overhead.",
+        "text" : "I am reluctant to come to the net. I avoid my backhand volley and am a bit lost at times as to what to do with the forehand volley.",
         "rating" : "2.0",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -137,7 +138,7 @@
 
     {
         "id" : 17,
-        "text" : "I have become at ease at the net in practice but I am uncomfortable in a game situation",
+        "text" : "I have become at ease at the net in practice for the most part but I am still uncomfortable in most game situations. I am usually able to put away easy forehand volleys at chest-to-shoulder height into a wide open court.",
         "rating" : "2.5",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -145,7 +146,7 @@
 
     {
         "id" : 18,
-        "text" : "I am very consistent on the forehand volley with easy balls, but I am inconsistent on the backhand volley. Overall, I have difficulty with low and wide balls. I can smash easy lobs.",
+        "text" : "I am very consistent on the forehand volley with easy and sometimes medium difficulty balls, but I am still inconsistent on the backhand volley. Overall, I have difficulty with low and wide balls. I can smash easy lobs.",
         "rating" : "3.0",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -153,7 +154,7 @@
 
     {
         "id" : 19,
-        "text" : "I have become confident at the net. I can direct forehand volleys; I can control the backhand volley but with little offense; I have general difficulty in putting volleys away. I can handle volleys and overheads that require moderate movement.",
+        "text" : "I have become confident at the net. I can direct forehand volleys; I can control the backhand volley but with little offense; I still have some difficulty with making tactically sound volley decisions. I can handle volleys and overheads that require moderate movement.",
         "rating" : "3.5",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -161,7 +162,7 @@
 
     {
         "id" : 20,
-        "text" : "In singles, I am comfortable with following an approach shot to the net. In doubles, I am comfortable receiving a variety of balls and converting to offensive positioning; I can poach on weak returns of serve. I am able to put away easy overheads.",
+        "text" : "I am comfortable with following an approach shot to the net and volleying into tactically sound spots. I am able to put away easy and medium difficulty overheads.",
         "rating" : "4.0",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -169,7 +170,7 @@
 
     {
         "id" : 21,
-        "text" : "When coming to the net after serving, I am consistently able to put the first volley in play but without pace or depth; however, I am inconsistent when trying to volley powerful or angled returns. Close to the net, I can finish a point using various options including the drop volley, angle volley, punch volley.",
+        "text" : "When coming to the net after serving, I am consistently able to put the first volley in play; however, I am inconsistent when trying to volley powerful or angled returns. Close to the net, I can finish a point using various options including the drop volley, angle volley, punch volley.",
         "rating" : "4.5",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -177,7 +178,7 @@
     
     {
         "id" : 22,
-        "text" : "In singles, I am very comfortable at the net in any situation. In doubles, after the serve, I have a good, deep crosscourt volley. Overhead can be hit from almost any position.",
+        "text" : "I am comfortable at the net in any situation and make sound tactical decisions. I can hit the overhead effectively from almost any position. I can follow up a first serve to the net and make volleys from ankle-to-knee height consistently.",
         "rating" : "5.0",
         "endIfSelected" : false,
         "type" : "Net Play"
@@ -201,7 +202,7 @@
 
     {
         "id" : 25,
-        "text" : "I use a full motion on both first and second serves. I am able to achieve more than 50% success on the first serve. My second serve is much slower than my first serve. ",
+        "text" : "I use a full motion on both first and second serves. I am able to achieve more than 50% success on the first serve. My second serve is much slower than my first serve.",
         "rating" : "3.0",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -217,7 +218,7 @@
 
     {
         "id" : 27,
-        "text" : "I can vary the speed and direction of the first serve. I use spin on my serves.",
+        "text" : "I can vary the speed and direction of the first serve. I use spin (slice and kick) on my serves. Kick serves are still somewhat difficult to accomplish consistently.",
         "rating" : "4.0",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -225,7 +226,7 @@
 
     {
         "id" : 28,
-        "text" : "I have an aggressive first serve with power and spin. My second serve frequently hits the court with good depth and placement. I can serve and volley after my first serves in doubles, but experience some inconsistency.",
+        "text" : "I have an aggressive first serve with power and spin. My second serve frequently hits the court with good depth and placement. I can serve and volley after my first serves, but experience some inconsistency when the return is of a higher quality.",
         "rating" : "4.5",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -233,7 +234,7 @@
 
     {
         "id" : 29,
-        "text" : "My first serve can win points outright, or force a weak return. My second serve can prevent the opponent from attacking. I serve and volley off the first serve in doubles with consistency.",
+        "text" : "My first serve can win points outright or force a weak return consistently, or it is extremely consistent with medium pace and good placement. My second serve can prevent the opponent from attacking",
         "rating" : "5.0",
         "endIfSelected" : false,
         "type" : "Serve"
@@ -241,7 +242,7 @@
 
     {
         "id" : 30,
-        "text" : "<b>I am capable of competing in 'open' category provincial level tournaments.</b> I have developed a gamestyle which is recognizable as either an all-court player, an aggressive baseliner, a serve and volleyer, or a retriever. I have developed good anticipation either technically (can read toss on serve, body position…) or tactically (can read opponents tendencies in specific situations). I have no major weaknesses and can counterattack effectively against a hard ball, wide ball, or in passing shot situations. I have the ability to use specific shots in order to exploit opponent’s weakness: drop-shot, lob, angle, moonball…",
+        "text" : "I am capable of competing in Open level tournaments (5.0+)",
         "rating" : "5.0-5.5",
         "endIfSelected" : true,
         "type" : "general"
@@ -249,7 +250,7 @@
 
     {
         "id" : 31,
-        "text" : "<b>I have extensive international 'open' level tournament experience at the entry professional level (challenger or satellite experience).</b> My rankings or past rankings will speak for themselves. I have had intensive training for national tournament competition at the junior level and collegiate levels and have obtained a provincial and/or national 'open' ranking.",
+        "text" : "I have extensive international level tournament experience at the entry professional level and above.",
         "rating" : "6.0+",
         "endIfSelected" : true,
         "type" : "general"

@@ -12,6 +12,9 @@ const RatingHelper = () => {
     const [nameComplete, setNameComplete] = React.useState(false);
     const [nameIsValid, setNameIsValid] = React.useState(false);
 
+    const baseUrl = 'https://precisiontennis.ca'
+    const baseFolder = 'rating';
+
     let types = [
         'general', 
         'groundstrokes', 
@@ -35,7 +38,7 @@ const RatingHelper = () => {
             })
             .then(response => response.json())
             .then(data => {
-                window.location.replace(`/ntrp-self-rating-helper/result/${data.resultId}`);
+                window.location.replace(`/${baseFolder}/result/${data.resultId}`);
             });
     }
 
@@ -58,40 +61,40 @@ const RatingHelper = () => {
     }
 
     const handleClickNextButton = () => {
-        console.log('Clicked next!');
-        if(selectedAnswer !== undefined) {
+
+        console.log('selectedAnswer: ', selectedAnswer);
+
+        if(selectedAnswer !== null && selectedAnswer !== undefined) {
             if (endIfSelected) {
                 if (selectedAnswer !== null) {
                     storeOrReplaceAnswer();
                 }
                 setEnd(true);
-
-
-       		window.scrollTo(0, 0);
-
             } else {
                 storeOrReplaceAnswer();
                 setTypeIndex(typeIndex + 1);
-                console.log('answers in handleClickNextButton()', answers);
-
-        	window.scrollTo(0, 0);
-
             }
             setErrorText(null);
+            if (answers[typeIndex+1] !== null) {
+                setSelectedAnswer(answers[typeIndex+1]);
+            }
+            window.scrollTo(0, 0);
         } else {
-            setErrorText('Please select an option above.');
+            setErrorText('Please select an option.');
         }
-		
     }
 
     const handleClickBackButton = () => {
-        console.log('Clicked back!');
         if (selectedAnswer !== null) {
             storeOrReplaceAnswer();
         }
-        console.log('answers in handleClickBackButton()', answers);
-
+        setErrorText(null);
         setTypeIndex(typeIndex - 1);
+
+        if (answers[typeIndex-1] !== null) {
+            setSelectedAnswer(answers[typeIndex-1]);
+        }
+
     }
 
     const handleClickSubmitButton = () => {
@@ -103,28 +106,36 @@ const RatingHelper = () => {
                 // to handle general type questions being changed from None to something that ends the helper:
                 (types[typeIndex] === 'general' && endIfSelected) ? setAnswers([selectedAnswer]) : setAnswers(answers);
             }
-            setEnd(true); 
-        }
+            setEnd(true);
+            setErrorText(null);
 
-        // Store results in MySQL database
-        (types[typeIndex] === 'general' && endIfSelected) ? saveToDatabase([answers[0]]) : saveToDatabase(answers);
+            // Store results in MySQL database
+            (types[typeIndex] === 'general' && endIfSelected) ? saveToDatabase([answers[0]]) : saveToDatabase(answers);
+        } else {
+            setErrorText('Please select an option.');
+        }
     }
 
     const handleClickRadioButton = (question) => {
-        console.log('Clicked radio button!');
-        console.log('question.endIfSelected in handleClickRadioButton()', question.endIfSelected);
         if (!!question.endIfSelected === true) {
             setEndIfSelected(true);
         } else {
             setEndIfSelected(false);
         }
         setSelectedAnswer(question.rating);
-        console.log('answers state in handleClickRadioButton()', answers);
 
-        //if (document.querySelectorAll('.nav').length) {
-            //document.querySelector('.nav').scrollIntoView();
-        //}
+        // window.scrollTo(0,document.body.scrollHeight);
+        // setTimeout(() => {
+        //     if (document.querySelectorAll('.pt-cta.next-button-label').length) {
+        //         document.querySelector('.pt-cta.next-button-label').classList.add('pt-cta-active');
+        //     } else if (document.querySelectorAll('.pt-cta.submit-button-label').length) {
+        //         document.querySelector('.pt-cta.submit-button-label').classList.add('pt-cta-active');
+        //     }
+        // }, 250);
 
+        // if (document.querySelectorAll('.nav').length) {
+        //     document.querySelector('.nav').scrollIntoView();
+        // }
     }
 
     const fetchAllQuestions = async () => {
@@ -148,7 +159,14 @@ const RatingHelper = () => {
                     checked={selectedAnswer === question.rating}
                 />
                 <label name='question' className='question-box' key={question.id} htmlFor={`question-id-${question.id}`}>
-                    <span className='question-text' dangerouslySetInnerHTML={{ __html: question.text.trim() }} />    
+                    <span className='question-text' dangerouslySetInnerHTML={{ __html: question.text.trim() }} /> 
+                    {question.endIfSelected && (
+                        <div className='pt-question-label__container'>
+                            <div className='pt-question-label'>
+                                Selecting this option ends the helper
+                            </div>
+                        </div>
+                    )}
                 </label>
             </div>
         );
@@ -164,6 +182,7 @@ const RatingHelper = () => {
                 <div className='type'>
                     <span className='type-text'>{types[typeIndex]} Statements</span>
                 </div>
+
                 <div className='questions'> 
                     {questions.map(question => displayQuestion(question))}
                 </div>
@@ -172,7 +191,7 @@ const RatingHelper = () => {
                         {errorText}
                     </div>
                 )}
-                <div class='nav'>
+                <div className='nav'>
                     {(typeIndex > 0 && typeIndex < types.length) && 
 
                         <label className='pt-cta back-button-label' htmlFor='back-button-input'>
@@ -180,7 +199,6 @@ const RatingHelper = () => {
                             <span className='back-button-text'>Back</span>
                         </label>
                     }
-
                     {(typeIndex + 1 >= types.length) || endIfSelected ? (
 
                         <label className='pt-cta submit-button-label' htmlFor='submit-button-input'>
@@ -195,7 +213,6 @@ const RatingHelper = () => {
                             <span className='next-button-text'>Next</span>
                         </label>
                     )}
-
                 </div>
             </div>
         )
@@ -212,7 +229,7 @@ const RatingHelper = () => {
     const displayNameForm = () => {
         return (
             <div className='name-form'>
-                <div className='name-prompt'>What is your name? <suepr></suepr></div>
+                <div className='name-prompt'>What is your name? </div>
                 <input 
                     type='text' 
                     className='name-input'
@@ -236,84 +253,9 @@ const RatingHelper = () => {
         );
     }
 
-    const startOver = () => {
-        location.reload();
-    }
-
-    const getText = (answer, type) => {
-        console.log('-----'); 
-        console.log('answer in getText()', answer);
-        console.log('type in getText()', type);
-        console.log('-----'); 
-
-        const question = allQuestions.find(question => question.rating === answer && question.type.toLowerCase() === type); 
-        return question.text;
-    }
-
-    // Move to showResult.js
-    const displayResults = (generalOnly) => {
-        console.log('types in displayResults()', types);
-        console.log('answers in displayResults()', answers);
-        return (
-            <div className='results'>
-                <div className='final-rating'> Your rating is <b>{finalRating} NTRP</b></div>
-  
-                <table className='answers-summary'>
-                    <caption className='answers-summary-title'>
-                        Your Responses
-                    </caption>
-                    <tbody>
-                        <tr className='summary-item'>
-                            <td colSpan="1" className='summary-item-category'>
-                                Category
-                            </td>
-                            <td colSpan="1" className='summary-item-text'>
-                                Text
-                            </td>
-                            <td colSpan="1" className='summary-item-rating'>
-                                Rating
-                            </td>
-                        </tr>
-                        {answers.map((answer, i) => {
-                            if (!generalOnly && i > 0) {
-                                return (
-                                    <tr className='summary-item' key={i}>
-                                        <td colSpan="1" className='summary-item-category'>
-                                            {types[i]}
-                                        </td>
-                                        <td colSpan="1" className='summary-item-text' dangerouslySetInnerHTML={{ __html: getText(answer, types[i]) }} />
-                                        <td colSpan="1" className='summary-item-rating'>
-                                            {answer}
-                                        </td>
-                                    </tr>
-                                    )
-                                } else { 
-                                    if (generalOnly) {
-                                        return (
-                                            <tr className='summary-item' key={i}>
-                                                <td colSpan="1" className='summary-item-category'>
-                                                    General
-                                                </td>
-                                                <td colSpan="1" className='summary-item-text' dangerouslySetInnerHTML={{ __html: getText(answer, 'general') }} />
-                                                <td colSpan="1" className='summary-item-rating'>
-                                                    {answer}
-                                                </td>
-                                            </tr>  
-                                        )
-                                    }
-                                }
-                        })}
-                    </tbody>
-                </table>
-                <input className="pt-cta" type="button" value="Start Over" onClick={() => startOver()} />
-            </div>
-        );
-    }
-
     React.useEffect(() => {
         const listener = event => {
           if (event.code === "Enter" || event.code === "NumpadEnter") {
-            console.log("Enter key was pressed. Run your function.");
             event.preventDefault();
             if (document.querySelector('#submit-name-button').disabled === false) {
                 startHelper();
@@ -328,26 +270,27 @@ const RatingHelper = () => {
 
     React.useEffect(async () => {
         fetchAllQuestions().then((questionData) => setAllQuestions(questionData));
+
+        if (document.querySelectorAll('.name-input').length) {
+            document.querySelector('.name-input').focus();  
+        }
+
     }, []);
 
     React.useEffect(() => {
-        console.log('selectedAnswer state in useEffect() for selectedAnswer', selectedAnswer);
     }, [selectedAnswer]);
 
     React.useEffect(() => {
-        console.log('answers state in useEffect() for answers', answers);
+        console.log(answers);
     }, [answers]);
 
     React.useEffect(() => {
-        setSelectedAnswer(answers[typeIndex]);
     }, [typeIndex]);
 
     React.useEffect(() => {
-        console.log('endIfSelected state in useEffect() for endIfSelected', endIfSelected);
     }, [endIfSelected]);
 
     React.useEffect(() => {
-        console.log('answers state in useEffect() for end', answers);
         if (endIfSelected === true) {
             setFinalRating(selectedAnswer);
         } else {
@@ -372,13 +315,12 @@ const RatingHelper = () => {
     }, [nameInput]);
 
     React.useEffect(() => {
-        console.log('nameIsValid in useEffect() for nameIsValid', nameIsValid);
     }, [nameIsValid]);
        
     return (
         <div className='main'> 
             <div className='top-bar'>
-                <a href='/ntrp-self-rating-helper' className='title'>NTRP Self-Rating Helper</a>
+                <a href={baseUrl + '/' + baseFolder} className='title'>NTRP Self-Rating Helper</a>
                 <a href='/' className='brand'>
                     <div className='brand-intro-text'>by</div>
                     <img className='brand-logo' src='https://precisiontennis.ca/assets/img/pt_logo.png' />

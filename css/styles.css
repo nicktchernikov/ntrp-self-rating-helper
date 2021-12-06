@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Open Sans', Arial, sans-serif;
     background-color: black;
@@ -17,6 +21,10 @@ body {
     text-decoration: underline;
 }
 
+.questions {
+    margin-top: 10px;
+}
+
 .question {
     margin-top: -10px;
 }
@@ -29,10 +37,10 @@ body {
 
 .question-box:hover {
     cursor: pointer;
-    /*background-color: #dcf2ea;*/
-    border-radius: 5px;
-    outline: 5px solid #fed136;
-    /*color: black;*/
+    /* background-color: white; */
+    /*outline: 5px solid #fed136;*/
+    /* color: black;
+    border: 1px solid grey; */
 }
 
 .radio-selected {
@@ -146,6 +154,7 @@ input[name="question"]:checked + label {
 
     label.start-over-button {
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .start-over-button-text {
@@ -252,6 +261,7 @@ input[name="question"]:checked + label {
 .top-bar {
     display: flex;
     row-gap: 10px;
+    align-content: center;
 }
 
 .brand {
@@ -272,7 +282,7 @@ input[name="question"]:checked + label {
     .brand {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
 }
 
@@ -329,6 +339,8 @@ input:disabled + label > div {
 
     position: absolute;
     top: calc(12.5%);
+
+    width: 320px;
 }
 
 .final-rating {
@@ -340,6 +352,7 @@ input:disabled + label > div {
     margin: 30px;
     border: 1px solid white;
     border-collapse: collapse;
+    margin-bottom: 15px;
 }
 
 .results-table td, th{
@@ -347,8 +360,6 @@ input:disabled + label > div {
     font-size: 12px;
     text-transform: capitalize;
 }
-
-
 
 caption.rating {
     margin-bottom : 15px;
@@ -386,6 +397,10 @@ caption.rating {
     /* border-bottom: 5px solid white; */
 }
 
+.pt-cta:hover {
+    /* background-color: #494949; */
+}
+
 .back-button-label.pt-cta {
     border-right: none;
     border-left: none;
@@ -394,4 +409,46 @@ caption.rating {
 .next-button-label.pt-cta {
     border-right: none;
     border-left: none;
+}
+
+.pt-cta-active {
+    box-shadow: 1px 1px 15px #FFFFFF;
+}
+
+.pt-question-label__container {
+    position: relative;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.pt-question-label {
+    background-color: #404040;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 3px;
+    border-radius: 4px;
+
+    color: white;
+
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.pt-selected {
+    background-color: #fed136;
+}
+
+.pt-copy-link-header {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.pt-copy-link {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px !important;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;    
 }
