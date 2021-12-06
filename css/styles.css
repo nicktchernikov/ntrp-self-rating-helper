@@ -340,7 +340,8 @@ input:disabled + label > div {
     position: absolute;
     top: calc(12.5%);
 
-    width: 320px;
+    width: auto;
+    max-width: 768px;
 }
 
 .final-rating {
@@ -359,6 +360,10 @@ input:disabled + label > div {
     padding: 10px;
     font-size: 12px;
     text-transform: capitalize;
+}
+
+.description { 
+  text-transform: none !important;
 }
 
 caption.rating {
@@ -402,12 +407,12 @@ caption.rating {
 }
 
 .back-button-label.pt-cta {
-    border-right: none;
+    /* border-right: none; */
     border-left: none;
 }
 
 .next-button-label.pt-cta {
-    border-right: none;
+    /* border-right: none; */
     border-left: none;
 }
 
@@ -450,5 +455,6 @@ caption.rating {
     padding: 5px;
     border-radius: 5px;
     width: 100%;
+    max-width: 300px;
     cursor: pointer;    
 }

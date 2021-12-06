@@ -1,15 +1,40 @@
 const ShowResult = () => {
+    const [fetching, setFetching] = React.useState(true);
+    const [allQuestions, setAllQuestions] = React.useState([]);
     const [answers, setAnswers] = React.useState([]);
     const [ntrp, setNtrp] = React.useState('');
-    const [fetching, setFetching] = React.useState(true);
     const [name, setName] = React.useState('');
     const [date, setDate] = React.useState('');
  
     const baseUrl = 'https://precisiontennis.ca';
     const baseFolder = '/rating';
 
+    const fetchAllQuestions = async () => {
+      return (await fetch('/rating/questions.json')).json();
+    }
+
+    const filterQuestionsByType = (allQuestions, currentType) => {
+      return allQuestions.filter(question => question.type.toLowerCase() === currentType.toLowerCase());
+    }
+
+    const getDescription = (type, rating) => {
+      const defaultDescription = 'Same as above';
+      let description = defaultDescription;
+      const typeQuestions = filterQuestionsByType(allQuestions, type);
+      typeQuestions.forEach(question => {
+        if (question.rating === rating) {
+          console.log(question.text);
+          description = question.text;
+        }
+      });
+      if (description !== defaultDescription) {
+        description = '"' + description + '"';
+      }
+      return description;
+    }
+    
     const startOver = () => {
-        window.location.href = '/rating';
+      window.location.href = '/rating';
     }
 
     React.useEffect(() => {
@@ -24,6 +49,7 @@ const ShowResult = () => {
                 setName(data.name);
                 setDate(data.date);
             });
+          fetchAllQuestions().then((questionData) => setAllQuestions(questionData));
     }, []);
 
     React.useEffect(() => {
@@ -57,6 +83,7 @@ const ShowResult = () => {
                                 <thead>
                                     <th>Stroke</th>
                                     <th>Self-Rating</th>
+                                    <th>Description</th>
                                 </thead>
                                 <tbody>
                                 {answers.map((answer, i) => {
@@ -68,6 +95,9 @@ const ShowResult = () => {
                                             <td>
                                                 {answer[1] ? answer[1] : ( (ntrp.toString().indexOf('+') > -1) || (ntrp.toString().indexOf('-') > -1) ) ? ntrp : ntrp.toFixed(1)}
                                             </td>
+                                            <td class='description'> 
+                                             {getDescription(answer[0], answer[1])}
+                                            </td>
                                         </tr>
                                     );
                                 })}
@@ -77,7 +107,7 @@ const ShowResult = () => {
                             <span style={{'marginBottom' : '10px' }}>Date of Rating:</span> <code className='result-item'>{date}</code>
 
                             <div className='pt-copy-link-header'> 
-                                Share these results with others: 
+                                Share this rating with others: 
                             </div>
                             <input 
                                 className='pt-copy-link' 
@@ -93,8 +123,6 @@ const ShowResult = () => {
                         </div>
                     </div>
                 </div>
-
-
             )}
         </div>
     );

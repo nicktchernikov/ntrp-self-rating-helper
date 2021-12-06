@@ -63,8 +63,6 @@ const RatingHelper = () => {
 
     const handleClickNextButton = () => {
 
-        console.log('selectedAnswer: ', selectedAnswer);
-
         if(selectedAnswer !== null && selectedAnswer !== undefined) {
             if (endIfSelected) {
                 if (selectedAnswer !== null) {
@@ -181,7 +179,7 @@ const RatingHelper = () => {
                     Please select the answer which best describes your skill level.
                 </div>
                 <div className='type'>
-                    <span className='type-text'>{types[typeIndex]} Statements</span>
+                    <span className='type-text'>{types[typeIndex]}</span>
                 </div>
 
                 <div className='questions'> 
@@ -236,6 +234,7 @@ const RatingHelper = () => {
                     className='name-input'
                     placeholder='Your Name'
                     onChange={(event) => handleNameChange(event.target.value)}
+                    maxlength='30'
                 />
                 <br />
                 <input
@@ -282,7 +281,6 @@ const RatingHelper = () => {
     }, [selectedAnswer]);
 
     React.useEffect(() => {
-        console.log(answers);
     }, [answers]);
 
     React.useEffect(() => {

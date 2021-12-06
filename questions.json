@@ -1,7 +1,7 @@
 [
     {
         "id" : 0,
-        "text" : "<b>I have never played tennis before.</b>",
+        "text" : "I have never played tennis before.",
         "rating" : "1.0-1.5",
         "endIfSelected" : true,
         "type" : "general"
@@ -258,7 +258,7 @@
 
     {
         "id" : 32,
-        "text" : "<b>None of the above.</b>",
+        "text" : "None of the above.",
         "rating" : "",
         "endIfSelected" : false,
         "type" : "general"
