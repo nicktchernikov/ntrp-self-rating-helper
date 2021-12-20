@@ -18,7 +18,7 @@ const ShowResult = () => {
     }
 
     const getDescription = (type, rating) => {
-      const defaultDescription = 'Same as above';
+      const defaultDescription = 'See General description';
       let description = defaultDescription;
       const typeQuestions = filterQuestionsByType(allQuestions, type);
       typeQuestions.forEach(question => {
@@ -26,14 +26,14 @@ const ShowResult = () => {
           description = question.text;
         }
       });
-      if (description === 'None of the above.') {
+      if (description === 'None of the above apply to me; ask me more questions.') {
         description = '';
       }
       if (description !== defaultDescription) {
         description = '"' + description + '"';
       }
       if (description == '""') {
-        description = 'N/A';
+        description = 'See below descriptions';
       }
       return description;
     }
@@ -123,7 +123,7 @@ const ShowResult = () => {
 
                             <input id='start-over-button' className="start-over-button" type="button" value="Start Over" onClick={() => startOver()} />
                             <label className='pt-cta start-over-button' htmlFor='start-over-button'>
-                                <span className='start-over-button-text'> Get Your Level </span>
+                                <span className='start-over-button-text'> Get Your Level! </span>
                             </label>
                         </div>
                     </div>

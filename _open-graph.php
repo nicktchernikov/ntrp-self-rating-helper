@@ -25,12 +25,12 @@
     $tags = [
       [
         'property' => 'og:title',
-        'content' =>  $name . '\'s NTRP Tennis Self-Rating Results'
+        'content' =>  $name . '\'s Self-Rated NTRP Tennis Level ['.$date.']'
       ],
 
       [
         'property' => 'og:description',
-        'content' => 'This is ' . $name . '\'s self-rated NTRP tennis level on ' . $date . '. Check it out and also get your own self-rated level easily :.'
+        'content' => 'Check out ' . $name . '\'s self-rated NTRP tennis level  on ' . $date . '.'
       ],
       [
         'property' => 'og:image',

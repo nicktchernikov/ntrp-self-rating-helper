@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>NTRP Self-Rating Helper</title>
+        <title> NTRP Tennis Self-Rating Helper | What Is My Tennis Level? </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,8 @@
           else: 
         ?>
         <meta property='og:image' content='https://app.precisiontennis.ca/img/precision_tennis_logo.jpg' />
-        <meta property='og:description' content='The easy way to get your tennis NTRP skill level!' />
+        <meta property='og:title' content='Tennis Self-Rating Helper | What Is My Tennis Level?' />
+        <meta property='og:description' content='Simple tool to help you get your self-rated NTRP tennis level.' />
         <?php endif; ?>
       </head>
     <body>

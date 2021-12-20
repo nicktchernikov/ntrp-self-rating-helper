@@ -31,7 +31,7 @@ const RatingHelper = () => {
             postData.append(key, answers[i]);
         }
         postData.append('data-name', nameInput);
-        postData.append('data-date', (new Date()).toDateString());
+        postData.append('data-date', (new Date()).toLocaleString().split(',')[0]);
 
         fetch('saveResult.php', {
                 method: 'POST',
@@ -97,7 +97,7 @@ const RatingHelper = () => {
     }
 
     const handleClickSubmitButton = () => {
-        if (selectedAnswer !== null) {
+        if(selectedAnswer !== null && selectedAnswer !== undefined) {
             if (answers[typeIndex] === null) { // answer already selected before
                 storeAnswer();
             } else {
@@ -175,13 +175,19 @@ const RatingHelper = () => {
         const questions = filterQuestionsByType(allQuestions, types[typeIndex]);
         return (
             <div>
-                <div className='prompt-text'>
-                    Please select the answer which best describes your skill level.
-                </div>
                 <div className='type'>
                     <span className='type-text'>{types[typeIndex]}</span>
                 </div>
+                <div className='prompt-text'>
 
+                      <p>
+                      Statements are inspired by and adpated from the <a href='https://www.tenniscanada.com/wp-content/uploads/2015/12/Self-Rating-Guide-English.pdf'>
+                      Tennis Canada Self-Rating Guide
+                      </a>
+                    </p>
+
+                    Please select the answer which best describes your skill level.
+                </div>
                 <div className='questions'> 
                     {questions.map(question => displayQuestion(question))}
                 </div>
